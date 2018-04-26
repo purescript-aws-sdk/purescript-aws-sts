@@ -10,7 +10,7 @@ options :: Options
 
 ``` purescript
 newtype AssumeRoleRequest
-  = AssumeRoleRequest { "RoleArn" :: ArnType', "RoleSessionName" :: RoleSessionNameType', "Policy" :: NullOrUndefined (SessionPolicyDocumentType'), "DurationSeconds" :: NullOrUndefined (RoleDurationSecondsType'), "ExternalId" :: NullOrUndefined (ExternalIdType'), "SerialNumber" :: NullOrUndefined (SerialNumberType'), "TokenCode" :: NullOrUndefined (TokenCodeType') }
+  = AssumeRoleRequest { "RoleArn" :: ArnType', "RoleSessionName" :: RoleSessionNameType', "Policy" :: Maybe (SessionPolicyDocumentType'), "DurationSeconds" :: Maybe (RoleDurationSecondsType'), "ExternalId" :: Maybe (ExternalIdType'), "SerialNumber" :: Maybe (SerialNumberType'), "TokenCode" :: Maybe (TokenCodeType') }
 ```
 
 ##### Instances
@@ -33,7 +33,7 @@ Constructs AssumeRoleRequest from required parameters
 #### `newAssumeRoleRequest'`
 
 ``` purescript
-newAssumeRoleRequest' :: ArnType' -> RoleSessionNameType' -> ({ "RoleArn" :: ArnType', "RoleSessionName" :: RoleSessionNameType', "Policy" :: NullOrUndefined (SessionPolicyDocumentType'), "DurationSeconds" :: NullOrUndefined (RoleDurationSecondsType'), "ExternalId" :: NullOrUndefined (ExternalIdType'), "SerialNumber" :: NullOrUndefined (SerialNumberType'), "TokenCode" :: NullOrUndefined (TokenCodeType') } -> { "RoleArn" :: ArnType', "RoleSessionName" :: RoleSessionNameType', "Policy" :: NullOrUndefined (SessionPolicyDocumentType'), "DurationSeconds" :: NullOrUndefined (RoleDurationSecondsType'), "ExternalId" :: NullOrUndefined (ExternalIdType'), "SerialNumber" :: NullOrUndefined (SerialNumberType'), "TokenCode" :: NullOrUndefined (TokenCodeType') }) -> AssumeRoleRequest
+newAssumeRoleRequest' :: ArnType' -> RoleSessionNameType' -> ({ "RoleArn" :: ArnType', "RoleSessionName" :: RoleSessionNameType', "Policy" :: Maybe (SessionPolicyDocumentType'), "DurationSeconds" :: Maybe (RoleDurationSecondsType'), "ExternalId" :: Maybe (ExternalIdType'), "SerialNumber" :: Maybe (SerialNumberType'), "TokenCode" :: Maybe (TokenCodeType') } -> { "RoleArn" :: ArnType', "RoleSessionName" :: RoleSessionNameType', "Policy" :: Maybe (SessionPolicyDocumentType'), "DurationSeconds" :: Maybe (RoleDurationSecondsType'), "ExternalId" :: Maybe (ExternalIdType'), "SerialNumber" :: Maybe (SerialNumberType'), "TokenCode" :: Maybe (TokenCodeType') }) -> AssumeRoleRequest
 ```
 
 Constructs AssumeRoleRequest's fields from required parameters
@@ -42,7 +42,7 @@ Constructs AssumeRoleRequest's fields from required parameters
 
 ``` purescript
 newtype AssumeRoleResponse
-  = AssumeRoleResponse { "Credentials" :: NullOrUndefined (Credentials), "AssumedRoleUser" :: NullOrUndefined (AssumedRoleUser), "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType') }
+  = AssumeRoleResponse { "Credentials" :: Maybe (Credentials), "AssumedRoleUser" :: Maybe (AssumedRoleUser), "PackedPolicySize" :: Maybe (NonNegativeIntegerType') }
 ```
 
 <p>Contains the response to a successful <a>AssumeRole</a> request, including temporary AWS credentials that can be used to make AWS requests. </p>
@@ -67,7 +67,7 @@ Constructs AssumeRoleResponse from required parameters
 #### `newAssumeRoleResponse'`
 
 ``` purescript
-newAssumeRoleResponse' :: ({ "Credentials" :: NullOrUndefined (Credentials), "AssumedRoleUser" :: NullOrUndefined (AssumedRoleUser), "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType') } -> { "Credentials" :: NullOrUndefined (Credentials), "AssumedRoleUser" :: NullOrUndefined (AssumedRoleUser), "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType') }) -> AssumeRoleResponse
+newAssumeRoleResponse' :: ({ "Credentials" :: Maybe (Credentials), "AssumedRoleUser" :: Maybe (AssumedRoleUser), "PackedPolicySize" :: Maybe (NonNegativeIntegerType') } -> { "Credentials" :: Maybe (Credentials), "AssumedRoleUser" :: Maybe (AssumedRoleUser), "PackedPolicySize" :: Maybe (NonNegativeIntegerType') }) -> AssumeRoleResponse
 ```
 
 Constructs AssumeRoleResponse's fields from required parameters
@@ -76,7 +76,7 @@ Constructs AssumeRoleResponse's fields from required parameters
 
 ``` purescript
 newtype AssumeRoleWithSAMLRequest
-  = AssumeRoleWithSAMLRequest { "RoleArn" :: ArnType', "PrincipalArn" :: ArnType', "SAMLAssertion" :: SAMLAssertionType, "Policy" :: NullOrUndefined (SessionPolicyDocumentType'), "DurationSeconds" :: NullOrUndefined (RoleDurationSecondsType') }
+  = AssumeRoleWithSAMLRequest { "RoleArn" :: ArnType', "PrincipalArn" :: ArnType', "SAMLAssertion" :: SAMLAssertionType, "Policy" :: Maybe (SessionPolicyDocumentType'), "DurationSeconds" :: Maybe (RoleDurationSecondsType') }
 ```
 
 ##### Instances
@@ -99,7 +99,7 @@ Constructs AssumeRoleWithSAMLRequest from required parameters
 #### `newAssumeRoleWithSAMLRequest'`
 
 ``` purescript
-newAssumeRoleWithSAMLRequest' :: ArnType' -> ArnType' -> SAMLAssertionType -> ({ "RoleArn" :: ArnType', "PrincipalArn" :: ArnType', "SAMLAssertion" :: SAMLAssertionType, "Policy" :: NullOrUndefined (SessionPolicyDocumentType'), "DurationSeconds" :: NullOrUndefined (RoleDurationSecondsType') } -> { "RoleArn" :: ArnType', "PrincipalArn" :: ArnType', "SAMLAssertion" :: SAMLAssertionType, "Policy" :: NullOrUndefined (SessionPolicyDocumentType'), "DurationSeconds" :: NullOrUndefined (RoleDurationSecondsType') }) -> AssumeRoleWithSAMLRequest
+newAssumeRoleWithSAMLRequest' :: ArnType' -> ArnType' -> SAMLAssertionType -> ({ "RoleArn" :: ArnType', "PrincipalArn" :: ArnType', "SAMLAssertion" :: SAMLAssertionType, "Policy" :: Maybe (SessionPolicyDocumentType'), "DurationSeconds" :: Maybe (RoleDurationSecondsType') } -> { "RoleArn" :: ArnType', "PrincipalArn" :: ArnType', "SAMLAssertion" :: SAMLAssertionType, "Policy" :: Maybe (SessionPolicyDocumentType'), "DurationSeconds" :: Maybe (RoleDurationSecondsType') }) -> AssumeRoleWithSAMLRequest
 ```
 
 Constructs AssumeRoleWithSAMLRequest's fields from required parameters
@@ -108,7 +108,7 @@ Constructs AssumeRoleWithSAMLRequest's fields from required parameters
 
 ``` purescript
 newtype AssumeRoleWithSAMLResponse
-  = AssumeRoleWithSAMLResponse { "Credentials" :: NullOrUndefined (Credentials), "AssumedRoleUser" :: NullOrUndefined (AssumedRoleUser), "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType'), "Subject" :: NullOrUndefined (Subject), "SubjectType" :: NullOrUndefined (SubjectType), "Issuer" :: NullOrUndefined (Issuer), "Audience" :: NullOrUndefined (Audience), "NameQualifier" :: NullOrUndefined (NameQualifier) }
+  = AssumeRoleWithSAMLResponse { "Credentials" :: Maybe (Credentials), "AssumedRoleUser" :: Maybe (AssumedRoleUser), "PackedPolicySize" :: Maybe (NonNegativeIntegerType'), "Subject" :: Maybe (Subject), "SubjectType" :: Maybe (SubjectType), "Issuer" :: Maybe (Issuer), "Audience" :: Maybe (Audience), "NameQualifier" :: Maybe (NameQualifier) }
 ```
 
 <p>Contains the response to a successful <a>AssumeRoleWithSAML</a> request, including temporary AWS credentials that can be used to make AWS requests. </p>
@@ -133,7 +133,7 @@ Constructs AssumeRoleWithSAMLResponse from required parameters
 #### `newAssumeRoleWithSAMLResponse'`
 
 ``` purescript
-newAssumeRoleWithSAMLResponse' :: ({ "Credentials" :: NullOrUndefined (Credentials), "AssumedRoleUser" :: NullOrUndefined (AssumedRoleUser), "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType'), "Subject" :: NullOrUndefined (Subject), "SubjectType" :: NullOrUndefined (SubjectType), "Issuer" :: NullOrUndefined (Issuer), "Audience" :: NullOrUndefined (Audience), "NameQualifier" :: NullOrUndefined (NameQualifier) } -> { "Credentials" :: NullOrUndefined (Credentials), "AssumedRoleUser" :: NullOrUndefined (AssumedRoleUser), "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType'), "Subject" :: NullOrUndefined (Subject), "SubjectType" :: NullOrUndefined (SubjectType), "Issuer" :: NullOrUndefined (Issuer), "Audience" :: NullOrUndefined (Audience), "NameQualifier" :: NullOrUndefined (NameQualifier) }) -> AssumeRoleWithSAMLResponse
+newAssumeRoleWithSAMLResponse' :: ({ "Credentials" :: Maybe (Credentials), "AssumedRoleUser" :: Maybe (AssumedRoleUser), "PackedPolicySize" :: Maybe (NonNegativeIntegerType'), "Subject" :: Maybe (Subject), "SubjectType" :: Maybe (SubjectType), "Issuer" :: Maybe (Issuer), "Audience" :: Maybe (Audience), "NameQualifier" :: Maybe (NameQualifier) } -> { "Credentials" :: Maybe (Credentials), "AssumedRoleUser" :: Maybe (AssumedRoleUser), "PackedPolicySize" :: Maybe (NonNegativeIntegerType'), "Subject" :: Maybe (Subject), "SubjectType" :: Maybe (SubjectType), "Issuer" :: Maybe (Issuer), "Audience" :: Maybe (Audience), "NameQualifier" :: Maybe (NameQualifier) }) -> AssumeRoleWithSAMLResponse
 ```
 
 Constructs AssumeRoleWithSAMLResponse's fields from required parameters
@@ -142,7 +142,7 @@ Constructs AssumeRoleWithSAMLResponse's fields from required parameters
 
 ``` purescript
 newtype AssumeRoleWithWebIdentityRequest
-  = AssumeRoleWithWebIdentityRequest { "RoleArn" :: ArnType', "RoleSessionName" :: RoleSessionNameType', "WebIdentityToken" :: ClientTokenType', "ProviderId" :: NullOrUndefined (UrlType'), "Policy" :: NullOrUndefined (SessionPolicyDocumentType'), "DurationSeconds" :: NullOrUndefined (RoleDurationSecondsType') }
+  = AssumeRoleWithWebIdentityRequest { "RoleArn" :: ArnType', "RoleSessionName" :: RoleSessionNameType', "WebIdentityToken" :: ClientTokenType', "ProviderId" :: Maybe (UrlType'), "Policy" :: Maybe (SessionPolicyDocumentType'), "DurationSeconds" :: Maybe (RoleDurationSecondsType') }
 ```
 
 ##### Instances
@@ -165,7 +165,7 @@ Constructs AssumeRoleWithWebIdentityRequest from required parameters
 #### `newAssumeRoleWithWebIdentityRequest'`
 
 ``` purescript
-newAssumeRoleWithWebIdentityRequest' :: ArnType' -> RoleSessionNameType' -> ClientTokenType' -> ({ "RoleArn" :: ArnType', "RoleSessionName" :: RoleSessionNameType', "WebIdentityToken" :: ClientTokenType', "ProviderId" :: NullOrUndefined (UrlType'), "Policy" :: NullOrUndefined (SessionPolicyDocumentType'), "DurationSeconds" :: NullOrUndefined (RoleDurationSecondsType') } -> { "RoleArn" :: ArnType', "RoleSessionName" :: RoleSessionNameType', "WebIdentityToken" :: ClientTokenType', "ProviderId" :: NullOrUndefined (UrlType'), "Policy" :: NullOrUndefined (SessionPolicyDocumentType'), "DurationSeconds" :: NullOrUndefined (RoleDurationSecondsType') }) -> AssumeRoleWithWebIdentityRequest
+newAssumeRoleWithWebIdentityRequest' :: ArnType' -> RoleSessionNameType' -> ClientTokenType' -> ({ "RoleArn" :: ArnType', "RoleSessionName" :: RoleSessionNameType', "WebIdentityToken" :: ClientTokenType', "ProviderId" :: Maybe (UrlType'), "Policy" :: Maybe (SessionPolicyDocumentType'), "DurationSeconds" :: Maybe (RoleDurationSecondsType') } -> { "RoleArn" :: ArnType', "RoleSessionName" :: RoleSessionNameType', "WebIdentityToken" :: ClientTokenType', "ProviderId" :: Maybe (UrlType'), "Policy" :: Maybe (SessionPolicyDocumentType'), "DurationSeconds" :: Maybe (RoleDurationSecondsType') }) -> AssumeRoleWithWebIdentityRequest
 ```
 
 Constructs AssumeRoleWithWebIdentityRequest's fields from required parameters
@@ -174,7 +174,7 @@ Constructs AssumeRoleWithWebIdentityRequest's fields from required parameters
 
 ``` purescript
 newtype AssumeRoleWithWebIdentityResponse
-  = AssumeRoleWithWebIdentityResponse { "Credentials" :: NullOrUndefined (Credentials), "SubjectFromWebIdentityToken" :: NullOrUndefined (WebIdentitySubjectType'), "AssumedRoleUser" :: NullOrUndefined (AssumedRoleUser), "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType'), "Provider" :: NullOrUndefined (Issuer), "Audience" :: NullOrUndefined (Audience) }
+  = AssumeRoleWithWebIdentityResponse { "Credentials" :: Maybe (Credentials), "SubjectFromWebIdentityToken" :: Maybe (WebIdentitySubjectType'), "AssumedRoleUser" :: Maybe (AssumedRoleUser), "PackedPolicySize" :: Maybe (NonNegativeIntegerType'), "Provider" :: Maybe (Issuer), "Audience" :: Maybe (Audience) }
 ```
 
 <p>Contains the response to a successful <a>AssumeRoleWithWebIdentity</a> request, including temporary AWS credentials that can be used to make AWS requests. </p>
@@ -199,7 +199,7 @@ Constructs AssumeRoleWithWebIdentityResponse from required parameters
 #### `newAssumeRoleWithWebIdentityResponse'`
 
 ``` purescript
-newAssumeRoleWithWebIdentityResponse' :: ({ "Credentials" :: NullOrUndefined (Credentials), "SubjectFromWebIdentityToken" :: NullOrUndefined (WebIdentitySubjectType'), "AssumedRoleUser" :: NullOrUndefined (AssumedRoleUser), "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType'), "Provider" :: NullOrUndefined (Issuer), "Audience" :: NullOrUndefined (Audience) } -> { "Credentials" :: NullOrUndefined (Credentials), "SubjectFromWebIdentityToken" :: NullOrUndefined (WebIdentitySubjectType'), "AssumedRoleUser" :: NullOrUndefined (AssumedRoleUser), "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType'), "Provider" :: NullOrUndefined (Issuer), "Audience" :: NullOrUndefined (Audience) }) -> AssumeRoleWithWebIdentityResponse
+newAssumeRoleWithWebIdentityResponse' :: ({ "Credentials" :: Maybe (Credentials), "SubjectFromWebIdentityToken" :: Maybe (WebIdentitySubjectType'), "AssumedRoleUser" :: Maybe (AssumedRoleUser), "PackedPolicySize" :: Maybe (NonNegativeIntegerType'), "Provider" :: Maybe (Issuer), "Audience" :: Maybe (Audience) } -> { "Credentials" :: Maybe (Credentials), "SubjectFromWebIdentityToken" :: Maybe (WebIdentitySubjectType'), "AssumedRoleUser" :: Maybe (AssumedRoleUser), "PackedPolicySize" :: Maybe (NonNegativeIntegerType'), "Provider" :: Maybe (Issuer), "Audience" :: Maybe (Audience) }) -> AssumeRoleWithWebIdentityResponse
 ```
 
 Constructs AssumeRoleWithWebIdentityResponse's fields from required parameters
@@ -324,7 +324,7 @@ Constructs DecodeAuthorizationMessageRequest's fields from required parameters
 
 ``` purescript
 newtype DecodeAuthorizationMessageResponse
-  = DecodeAuthorizationMessageResponse { "DecodedMessage" :: NullOrUndefined (DecodedMessageType') }
+  = DecodeAuthorizationMessageResponse { "DecodedMessage" :: Maybe (DecodedMessageType') }
 ```
 
 <p>A document that contains additional information about the authorization status of a request from an encoded message that is returned in response to an AWS request.</p>
@@ -349,7 +349,7 @@ Constructs DecodeAuthorizationMessageResponse from required parameters
 #### `newDecodeAuthorizationMessageResponse'`
 
 ``` purescript
-newDecodeAuthorizationMessageResponse' :: ({ "DecodedMessage" :: NullOrUndefined (DecodedMessageType') } -> { "DecodedMessage" :: NullOrUndefined (DecodedMessageType') }) -> DecodeAuthorizationMessageResponse
+newDecodeAuthorizationMessageResponse' :: ({ "DecodedMessage" :: Maybe (DecodedMessageType') } -> { "DecodedMessage" :: Maybe (DecodedMessageType') }) -> DecodeAuthorizationMessageResponse
 ```
 
 Constructs DecodeAuthorizationMessageResponse's fields from required parameters
@@ -358,7 +358,7 @@ Constructs DecodeAuthorizationMessageResponse's fields from required parameters
 
 ``` purescript
 newtype ExpiredTokenException
-  = ExpiredTokenException { message :: NullOrUndefined (ExpiredIdentityTokenMessage') }
+  = ExpiredTokenException { message :: Maybe (ExpiredIdentityTokenMessage') }
 ```
 
 <p>The web identity token that was passed is expired or is not valid. Get a new identity token from the identity provider and then retry the request.</p>
@@ -383,7 +383,7 @@ Constructs ExpiredTokenException from required parameters
 #### `newExpiredTokenException'`
 
 ``` purescript
-newExpiredTokenException' :: ({ message :: NullOrUndefined (ExpiredIdentityTokenMessage') } -> { message :: NullOrUndefined (ExpiredIdentityTokenMessage') }) -> ExpiredTokenException
+newExpiredTokenException' :: ({ message :: Maybe (ExpiredIdentityTokenMessage') } -> { message :: Maybe (ExpiredIdentityTokenMessage') }) -> ExpiredTokenException
 ```
 
 Constructs ExpiredTokenException's fields from required parameters
@@ -442,7 +442,7 @@ Encode GetCallerIdentityRequest
 
 ``` purescript
 newtype GetCallerIdentityResponse
-  = GetCallerIdentityResponse { "UserId" :: NullOrUndefined (UserIdType'), "Account" :: NullOrUndefined (AccountType'), "Arn" :: NullOrUndefined (ArnType') }
+  = GetCallerIdentityResponse { "UserId" :: Maybe (UserIdType'), "Account" :: Maybe (AccountType'), "Arn" :: Maybe (ArnType') }
 ```
 
 <p>Contains the response to a successful <a>GetCallerIdentity</a> request, including information about the entity making the request.</p>
@@ -467,7 +467,7 @@ Constructs GetCallerIdentityResponse from required parameters
 #### `newGetCallerIdentityResponse'`
 
 ``` purescript
-newGetCallerIdentityResponse' :: ({ "UserId" :: NullOrUndefined (UserIdType'), "Account" :: NullOrUndefined (AccountType'), "Arn" :: NullOrUndefined (ArnType') } -> { "UserId" :: NullOrUndefined (UserIdType'), "Account" :: NullOrUndefined (AccountType'), "Arn" :: NullOrUndefined (ArnType') }) -> GetCallerIdentityResponse
+newGetCallerIdentityResponse' :: ({ "UserId" :: Maybe (UserIdType'), "Account" :: Maybe (AccountType'), "Arn" :: Maybe (ArnType') } -> { "UserId" :: Maybe (UserIdType'), "Account" :: Maybe (AccountType'), "Arn" :: Maybe (ArnType') }) -> GetCallerIdentityResponse
 ```
 
 Constructs GetCallerIdentityResponse's fields from required parameters
@@ -476,7 +476,7 @@ Constructs GetCallerIdentityResponse's fields from required parameters
 
 ``` purescript
 newtype GetFederationTokenRequest
-  = GetFederationTokenRequest { "Name" :: UserNameType', "Policy" :: NullOrUndefined (SessionPolicyDocumentType'), "DurationSeconds" :: NullOrUndefined (DurationSecondsType') }
+  = GetFederationTokenRequest { "Name" :: UserNameType', "Policy" :: Maybe (SessionPolicyDocumentType'), "DurationSeconds" :: Maybe (DurationSecondsType') }
 ```
 
 ##### Instances
@@ -499,7 +499,7 @@ Constructs GetFederationTokenRequest from required parameters
 #### `newGetFederationTokenRequest'`
 
 ``` purescript
-newGetFederationTokenRequest' :: UserNameType' -> ({ "Name" :: UserNameType', "Policy" :: NullOrUndefined (SessionPolicyDocumentType'), "DurationSeconds" :: NullOrUndefined (DurationSecondsType') } -> { "Name" :: UserNameType', "Policy" :: NullOrUndefined (SessionPolicyDocumentType'), "DurationSeconds" :: NullOrUndefined (DurationSecondsType') }) -> GetFederationTokenRequest
+newGetFederationTokenRequest' :: UserNameType' -> ({ "Name" :: UserNameType', "Policy" :: Maybe (SessionPolicyDocumentType'), "DurationSeconds" :: Maybe (DurationSecondsType') } -> { "Name" :: UserNameType', "Policy" :: Maybe (SessionPolicyDocumentType'), "DurationSeconds" :: Maybe (DurationSecondsType') }) -> GetFederationTokenRequest
 ```
 
 Constructs GetFederationTokenRequest's fields from required parameters
@@ -508,7 +508,7 @@ Constructs GetFederationTokenRequest's fields from required parameters
 
 ``` purescript
 newtype GetFederationTokenResponse
-  = GetFederationTokenResponse { "Credentials" :: NullOrUndefined (Credentials), "FederatedUser" :: NullOrUndefined (FederatedUser), "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType') }
+  = GetFederationTokenResponse { "Credentials" :: Maybe (Credentials), "FederatedUser" :: Maybe (FederatedUser), "PackedPolicySize" :: Maybe (NonNegativeIntegerType') }
 ```
 
 <p>Contains the response to a successful <a>GetFederationToken</a> request, including temporary AWS credentials that can be used to make AWS requests. </p>
@@ -533,7 +533,7 @@ Constructs GetFederationTokenResponse from required parameters
 #### `newGetFederationTokenResponse'`
 
 ``` purescript
-newGetFederationTokenResponse' :: ({ "Credentials" :: NullOrUndefined (Credentials), "FederatedUser" :: NullOrUndefined (FederatedUser), "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType') } -> { "Credentials" :: NullOrUndefined (Credentials), "FederatedUser" :: NullOrUndefined (FederatedUser), "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType') }) -> GetFederationTokenResponse
+newGetFederationTokenResponse' :: ({ "Credentials" :: Maybe (Credentials), "FederatedUser" :: Maybe (FederatedUser), "PackedPolicySize" :: Maybe (NonNegativeIntegerType') } -> { "Credentials" :: Maybe (Credentials), "FederatedUser" :: Maybe (FederatedUser), "PackedPolicySize" :: Maybe (NonNegativeIntegerType') }) -> GetFederationTokenResponse
 ```
 
 Constructs GetFederationTokenResponse's fields from required parameters
@@ -542,7 +542,7 @@ Constructs GetFederationTokenResponse's fields from required parameters
 
 ``` purescript
 newtype GetSessionTokenRequest
-  = GetSessionTokenRequest { "DurationSeconds" :: NullOrUndefined (DurationSecondsType'), "SerialNumber" :: NullOrUndefined (SerialNumberType'), "TokenCode" :: NullOrUndefined (TokenCodeType') }
+  = GetSessionTokenRequest { "DurationSeconds" :: Maybe (DurationSecondsType'), "SerialNumber" :: Maybe (SerialNumberType'), "TokenCode" :: Maybe (TokenCodeType') }
 ```
 
 ##### Instances
@@ -565,7 +565,7 @@ Constructs GetSessionTokenRequest from required parameters
 #### `newGetSessionTokenRequest'`
 
 ``` purescript
-newGetSessionTokenRequest' :: ({ "DurationSeconds" :: NullOrUndefined (DurationSecondsType'), "SerialNumber" :: NullOrUndefined (SerialNumberType'), "TokenCode" :: NullOrUndefined (TokenCodeType') } -> { "DurationSeconds" :: NullOrUndefined (DurationSecondsType'), "SerialNumber" :: NullOrUndefined (SerialNumberType'), "TokenCode" :: NullOrUndefined (TokenCodeType') }) -> GetSessionTokenRequest
+newGetSessionTokenRequest' :: ({ "DurationSeconds" :: Maybe (DurationSecondsType'), "SerialNumber" :: Maybe (SerialNumberType'), "TokenCode" :: Maybe (TokenCodeType') } -> { "DurationSeconds" :: Maybe (DurationSecondsType'), "SerialNumber" :: Maybe (SerialNumberType'), "TokenCode" :: Maybe (TokenCodeType') }) -> GetSessionTokenRequest
 ```
 
 Constructs GetSessionTokenRequest's fields from required parameters
@@ -574,7 +574,7 @@ Constructs GetSessionTokenRequest's fields from required parameters
 
 ``` purescript
 newtype GetSessionTokenResponse
-  = GetSessionTokenResponse { "Credentials" :: NullOrUndefined (Credentials) }
+  = GetSessionTokenResponse { "Credentials" :: Maybe (Credentials) }
 ```
 
 <p>Contains the response to a successful <a>GetSessionToken</a> request, including temporary AWS credentials that can be used to make AWS requests. </p>
@@ -599,7 +599,7 @@ Constructs GetSessionTokenResponse from required parameters
 #### `newGetSessionTokenResponse'`
 
 ``` purescript
-newGetSessionTokenResponse' :: ({ "Credentials" :: NullOrUndefined (Credentials) } -> { "Credentials" :: NullOrUndefined (Credentials) }) -> GetSessionTokenResponse
+newGetSessionTokenResponse' :: ({ "Credentials" :: Maybe (Credentials) } -> { "Credentials" :: Maybe (Credentials) }) -> GetSessionTokenResponse
 ```
 
 Constructs GetSessionTokenResponse's fields from required parameters
@@ -608,7 +608,7 @@ Constructs GetSessionTokenResponse's fields from required parameters
 
 ``` purescript
 newtype IDPCommunicationErrorException
-  = IDPCommunicationErrorException { message :: NullOrUndefined (IdpCommunicationErrorMessage') }
+  = IDPCommunicationErrorException { message :: Maybe (IdpCommunicationErrorMessage') }
 ```
 
 <p>The request could not be fulfilled because the non-AWS identity provider (IDP) that was asked to verify the incoming identity token could not be reached. This is often a transient error caused by network conditions. Retry the request a limited number of times so that you don't exceed the request rate. If the error persists, the non-AWS identity provider might be down or not responding.</p>
@@ -633,7 +633,7 @@ Constructs IDPCommunicationErrorException from required parameters
 #### `newIDPCommunicationErrorException'`
 
 ``` purescript
-newIDPCommunicationErrorException' :: ({ message :: NullOrUndefined (IdpCommunicationErrorMessage') } -> { message :: NullOrUndefined (IdpCommunicationErrorMessage') }) -> IDPCommunicationErrorException
+newIDPCommunicationErrorException' :: ({ message :: Maybe (IdpCommunicationErrorMessage') } -> { message :: Maybe (IdpCommunicationErrorMessage') }) -> IDPCommunicationErrorException
 ```
 
 Constructs IDPCommunicationErrorException's fields from required parameters
@@ -642,7 +642,7 @@ Constructs IDPCommunicationErrorException's fields from required parameters
 
 ``` purescript
 newtype IDPRejectedClaimException
-  = IDPRejectedClaimException { message :: NullOrUndefined (IdpRejectedClaimMessage') }
+  = IDPRejectedClaimException { message :: Maybe (IdpRejectedClaimMessage') }
 ```
 
 <p>The identity provider (IdP) reported that authentication failed. This might be because the claim is invalid.</p> <p>If this error is returned for the <code>AssumeRoleWithWebIdentity</code> operation, it can also mean that the claim has expired or has been explicitly revoked. </p>
@@ -667,7 +667,7 @@ Constructs IDPRejectedClaimException from required parameters
 #### `newIDPRejectedClaimException'`
 
 ``` purescript
-newIDPRejectedClaimException' :: ({ message :: NullOrUndefined (IdpRejectedClaimMessage') } -> { message :: NullOrUndefined (IdpRejectedClaimMessage') }) -> IDPRejectedClaimException
+newIDPRejectedClaimException' :: ({ message :: Maybe (IdpRejectedClaimMessage') } -> { message :: Maybe (IdpRejectedClaimMessage') }) -> IDPRejectedClaimException
 ```
 
 Constructs IDPRejectedClaimException's fields from required parameters
@@ -676,7 +676,7 @@ Constructs IDPRejectedClaimException's fields from required parameters
 
 ``` purescript
 newtype InvalidAuthorizationMessageException
-  = InvalidAuthorizationMessageException { message :: NullOrUndefined (InvalidAuthorizationMessage') }
+  = InvalidAuthorizationMessageException { message :: Maybe (InvalidAuthorizationMessage') }
 ```
 
 <p>The error returned if the message passed to <code>DecodeAuthorizationMessage</code> was invalid. This can happen if the token contains invalid characters, such as linebreaks. </p>
@@ -701,7 +701,7 @@ Constructs InvalidAuthorizationMessageException from required parameters
 #### `newInvalidAuthorizationMessageException'`
 
 ``` purescript
-newInvalidAuthorizationMessageException' :: ({ message :: NullOrUndefined (InvalidAuthorizationMessage') } -> { message :: NullOrUndefined (InvalidAuthorizationMessage') }) -> InvalidAuthorizationMessageException
+newInvalidAuthorizationMessageException' :: ({ message :: Maybe (InvalidAuthorizationMessage') } -> { message :: Maybe (InvalidAuthorizationMessage') }) -> InvalidAuthorizationMessageException
 ```
 
 Constructs InvalidAuthorizationMessageException's fields from required parameters
@@ -710,7 +710,7 @@ Constructs InvalidAuthorizationMessageException's fields from required parameter
 
 ``` purescript
 newtype InvalidIdentityTokenException
-  = InvalidIdentityTokenException { message :: NullOrUndefined (InvalidIdentityTokenMessage') }
+  = InvalidIdentityTokenException { message :: Maybe (InvalidIdentityTokenMessage') }
 ```
 
 <p>The web identity token that was passed could not be validated by AWS. Get a new identity token from the identity provider and then retry the request.</p>
@@ -735,7 +735,7 @@ Constructs InvalidIdentityTokenException from required parameters
 #### `newInvalidIdentityTokenException'`
 
 ``` purescript
-newInvalidIdentityTokenException' :: ({ message :: NullOrUndefined (InvalidIdentityTokenMessage') } -> { message :: NullOrUndefined (InvalidIdentityTokenMessage') }) -> InvalidIdentityTokenException
+newInvalidIdentityTokenException' :: ({ message :: Maybe (InvalidIdentityTokenMessage') } -> { message :: Maybe (InvalidIdentityTokenMessage') }) -> InvalidIdentityTokenException
 ```
 
 Constructs InvalidIdentityTokenException's fields from required parameters
@@ -760,7 +760,7 @@ Encode Issuer
 
 ``` purescript
 newtype MalformedPolicyDocumentException
-  = MalformedPolicyDocumentException { message :: NullOrUndefined (MalformedPolicyDocumentMessage') }
+  = MalformedPolicyDocumentException { message :: Maybe (MalformedPolicyDocumentMessage') }
 ```
 
 <p>The request was rejected because the policy document was malformed. The error message describes the specific error.</p>
@@ -785,7 +785,7 @@ Constructs MalformedPolicyDocumentException from required parameters
 #### `newMalformedPolicyDocumentException'`
 
 ``` purescript
-newMalformedPolicyDocumentException' :: ({ message :: NullOrUndefined (MalformedPolicyDocumentMessage') } -> { message :: NullOrUndefined (MalformedPolicyDocumentMessage') }) -> MalformedPolicyDocumentException
+newMalformedPolicyDocumentException' :: ({ message :: Maybe (MalformedPolicyDocumentMessage') } -> { message :: Maybe (MalformedPolicyDocumentMessage') }) -> MalformedPolicyDocumentException
 ```
 
 Constructs MalformedPolicyDocumentException's fields from required parameters
@@ -810,7 +810,7 @@ Encode NameQualifier
 
 ``` purescript
 newtype PackedPolicyTooLargeException
-  = PackedPolicyTooLargeException { message :: NullOrUndefined (PackedPolicyTooLargeMessage') }
+  = PackedPolicyTooLargeException { message :: Maybe (PackedPolicyTooLargeMessage') }
 ```
 
 <p>The request was rejected because the policy document was too large. The error message describes how big the policy document is, in packed form, as a percentage of what the API allows.</p>
@@ -835,7 +835,7 @@ Constructs PackedPolicyTooLargeException from required parameters
 #### `newPackedPolicyTooLargeException'`
 
 ``` purescript
-newPackedPolicyTooLargeException' :: ({ message :: NullOrUndefined (PackedPolicyTooLargeMessage') } -> { message :: NullOrUndefined (PackedPolicyTooLargeMessage') }) -> PackedPolicyTooLargeException
+newPackedPolicyTooLargeException' :: ({ message :: Maybe (PackedPolicyTooLargeMessage') } -> { message :: Maybe (PackedPolicyTooLargeMessage') }) -> PackedPolicyTooLargeException
 ```
 
 Constructs PackedPolicyTooLargeException's fields from required parameters
@@ -844,7 +844,7 @@ Constructs PackedPolicyTooLargeException's fields from required parameters
 
 ``` purescript
 newtype RegionDisabledException
-  = RegionDisabledException { message :: NullOrUndefined (RegionDisabledMessage') }
+  = RegionDisabledException { message :: Maybe (RegionDisabledMessage') }
 ```
 
 <p>STS is not activated in the requested region for the account that is being asked to generate credentials. The account administrator must use the IAM console to activate STS in that region. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and Deactivating AWS STS in an AWS Region</a> in the <i>IAM User Guide</i>.</p>
@@ -869,7 +869,7 @@ Constructs RegionDisabledException from required parameters
 #### `newRegionDisabledException'`
 
 ``` purescript
-newRegionDisabledException' :: ({ message :: NullOrUndefined (RegionDisabledMessage') } -> { message :: NullOrUndefined (RegionDisabledMessage') }) -> RegionDisabledException
+newRegionDisabledException' :: ({ message :: Maybe (RegionDisabledMessage') } -> { message :: Maybe (RegionDisabledMessage') }) -> RegionDisabledException
 ```
 
 Constructs RegionDisabledException's fields from required parameters

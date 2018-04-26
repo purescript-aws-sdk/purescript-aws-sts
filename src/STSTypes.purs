@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -21,11 +20,11 @@ options = defaultOptions { unwrapSingleConstructors = true }
 newtype AssumeRoleRequest = AssumeRoleRequest 
   { "RoleArn" :: (ArnType')
   , "RoleSessionName" :: (RoleSessionNameType')
-  , "Policy" :: NullOrUndefined (SessionPolicyDocumentType')
-  , "DurationSeconds" :: NullOrUndefined (RoleDurationSecondsType')
-  , "ExternalId" :: NullOrUndefined (ExternalIdType')
-  , "SerialNumber" :: NullOrUndefined (SerialNumberType')
-  , "TokenCode" :: NullOrUndefined (TokenCodeType')
+  , "Policy" :: Maybe (SessionPolicyDocumentType')
+  , "DurationSeconds" :: Maybe (RoleDurationSecondsType')
+  , "ExternalId" :: Maybe (ExternalIdType')
+  , "SerialNumber" :: Maybe (SerialNumberType')
+  , "TokenCode" :: Maybe (TokenCodeType')
   }
 derive instance newtypeAssumeRoleRequest :: Newtype AssumeRoleRequest _
 derive instance repGenericAssumeRoleRequest :: Generic AssumeRoleRequest _
@@ -35,20 +34,20 @@ instance encodeAssumeRoleRequest :: Encode AssumeRoleRequest where encode = gene
 
 -- | Constructs AssumeRoleRequest from required parameters
 newAssumeRoleRequest :: ArnType' -> RoleSessionNameType' -> AssumeRoleRequest
-newAssumeRoleRequest _RoleArn _RoleSessionName = AssumeRoleRequest { "RoleArn": _RoleArn, "RoleSessionName": _RoleSessionName, "DurationSeconds": (NullOrUndefined Nothing), "ExternalId": (NullOrUndefined Nothing), "Policy": (NullOrUndefined Nothing), "SerialNumber": (NullOrUndefined Nothing), "TokenCode": (NullOrUndefined Nothing) }
+newAssumeRoleRequest _RoleArn _RoleSessionName = AssumeRoleRequest { "RoleArn": _RoleArn, "RoleSessionName": _RoleSessionName, "DurationSeconds": Nothing, "ExternalId": Nothing, "Policy": Nothing, "SerialNumber": Nothing, "TokenCode": Nothing }
 
 -- | Constructs AssumeRoleRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAssumeRoleRequest' :: ArnType' -> RoleSessionNameType' -> ( { "RoleArn" :: (ArnType') , "RoleSessionName" :: (RoleSessionNameType') , "Policy" :: NullOrUndefined (SessionPolicyDocumentType') , "DurationSeconds" :: NullOrUndefined (RoleDurationSecondsType') , "ExternalId" :: NullOrUndefined (ExternalIdType') , "SerialNumber" :: NullOrUndefined (SerialNumberType') , "TokenCode" :: NullOrUndefined (TokenCodeType') } -> {"RoleArn" :: (ArnType') , "RoleSessionName" :: (RoleSessionNameType') , "Policy" :: NullOrUndefined (SessionPolicyDocumentType') , "DurationSeconds" :: NullOrUndefined (RoleDurationSecondsType') , "ExternalId" :: NullOrUndefined (ExternalIdType') , "SerialNumber" :: NullOrUndefined (SerialNumberType') , "TokenCode" :: NullOrUndefined (TokenCodeType') } ) -> AssumeRoleRequest
-newAssumeRoleRequest' _RoleArn _RoleSessionName customize = (AssumeRoleRequest <<< customize) { "RoleArn": _RoleArn, "RoleSessionName": _RoleSessionName, "DurationSeconds": (NullOrUndefined Nothing), "ExternalId": (NullOrUndefined Nothing), "Policy": (NullOrUndefined Nothing), "SerialNumber": (NullOrUndefined Nothing), "TokenCode": (NullOrUndefined Nothing) }
+newAssumeRoleRequest' :: ArnType' -> RoleSessionNameType' -> ( { "RoleArn" :: (ArnType') , "RoleSessionName" :: (RoleSessionNameType') , "Policy" :: Maybe (SessionPolicyDocumentType') , "DurationSeconds" :: Maybe (RoleDurationSecondsType') , "ExternalId" :: Maybe (ExternalIdType') , "SerialNumber" :: Maybe (SerialNumberType') , "TokenCode" :: Maybe (TokenCodeType') } -> {"RoleArn" :: (ArnType') , "RoleSessionName" :: (RoleSessionNameType') , "Policy" :: Maybe (SessionPolicyDocumentType') , "DurationSeconds" :: Maybe (RoleDurationSecondsType') , "ExternalId" :: Maybe (ExternalIdType') , "SerialNumber" :: Maybe (SerialNumberType') , "TokenCode" :: Maybe (TokenCodeType') } ) -> AssumeRoleRequest
+newAssumeRoleRequest' _RoleArn _RoleSessionName customize = (AssumeRoleRequest <<< customize) { "RoleArn": _RoleArn, "RoleSessionName": _RoleSessionName, "DurationSeconds": Nothing, "ExternalId": Nothing, "Policy": Nothing, "SerialNumber": Nothing, "TokenCode": Nothing }
 
 
 
 -- | <p>Contains the response to a successful <a>AssumeRole</a> request, including temporary AWS credentials that can be used to make AWS requests. </p>
 newtype AssumeRoleResponse = AssumeRoleResponse 
-  { "Credentials" :: NullOrUndefined (Credentials)
-  , "AssumedRoleUser" :: NullOrUndefined (AssumedRoleUser)
-  , "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType')
+  { "Credentials" :: Maybe (Credentials)
+  , "AssumedRoleUser" :: Maybe (AssumedRoleUser)
+  , "PackedPolicySize" :: Maybe (NonNegativeIntegerType')
   }
 derive instance newtypeAssumeRoleResponse :: Newtype AssumeRoleResponse _
 derive instance repGenericAssumeRoleResponse :: Generic AssumeRoleResponse _
@@ -58,12 +57,12 @@ instance encodeAssumeRoleResponse :: Encode AssumeRoleResponse where encode = ge
 
 -- | Constructs AssumeRoleResponse from required parameters
 newAssumeRoleResponse :: AssumeRoleResponse
-newAssumeRoleResponse  = AssumeRoleResponse { "AssumedRoleUser": (NullOrUndefined Nothing), "Credentials": (NullOrUndefined Nothing), "PackedPolicySize": (NullOrUndefined Nothing) }
+newAssumeRoleResponse  = AssumeRoleResponse { "AssumedRoleUser": Nothing, "Credentials": Nothing, "PackedPolicySize": Nothing }
 
 -- | Constructs AssumeRoleResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAssumeRoleResponse' :: ( { "Credentials" :: NullOrUndefined (Credentials) , "AssumedRoleUser" :: NullOrUndefined (AssumedRoleUser) , "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType') } -> {"Credentials" :: NullOrUndefined (Credentials) , "AssumedRoleUser" :: NullOrUndefined (AssumedRoleUser) , "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType') } ) -> AssumeRoleResponse
-newAssumeRoleResponse'  customize = (AssumeRoleResponse <<< customize) { "AssumedRoleUser": (NullOrUndefined Nothing), "Credentials": (NullOrUndefined Nothing), "PackedPolicySize": (NullOrUndefined Nothing) }
+newAssumeRoleResponse' :: ( { "Credentials" :: Maybe (Credentials) , "AssumedRoleUser" :: Maybe (AssumedRoleUser) , "PackedPolicySize" :: Maybe (NonNegativeIntegerType') } -> {"Credentials" :: Maybe (Credentials) , "AssumedRoleUser" :: Maybe (AssumedRoleUser) , "PackedPolicySize" :: Maybe (NonNegativeIntegerType') } ) -> AssumeRoleResponse
+newAssumeRoleResponse'  customize = (AssumeRoleResponse <<< customize) { "AssumedRoleUser": Nothing, "Credentials": Nothing, "PackedPolicySize": Nothing }
 
 
 
@@ -71,8 +70,8 @@ newtype AssumeRoleWithSAMLRequest = AssumeRoleWithSAMLRequest
   { "RoleArn" :: (ArnType')
   , "PrincipalArn" :: (ArnType')
   , "SAMLAssertion" :: (SAMLAssertionType)
-  , "Policy" :: NullOrUndefined (SessionPolicyDocumentType')
-  , "DurationSeconds" :: NullOrUndefined (RoleDurationSecondsType')
+  , "Policy" :: Maybe (SessionPolicyDocumentType')
+  , "DurationSeconds" :: Maybe (RoleDurationSecondsType')
   }
 derive instance newtypeAssumeRoleWithSAMLRequest :: Newtype AssumeRoleWithSAMLRequest _
 derive instance repGenericAssumeRoleWithSAMLRequest :: Generic AssumeRoleWithSAMLRequest _
@@ -82,25 +81,25 @@ instance encodeAssumeRoleWithSAMLRequest :: Encode AssumeRoleWithSAMLRequest whe
 
 -- | Constructs AssumeRoleWithSAMLRequest from required parameters
 newAssumeRoleWithSAMLRequest :: ArnType' -> ArnType' -> SAMLAssertionType -> AssumeRoleWithSAMLRequest
-newAssumeRoleWithSAMLRequest _PrincipalArn _RoleArn _SAMLAssertion = AssumeRoleWithSAMLRequest { "PrincipalArn": _PrincipalArn, "RoleArn": _RoleArn, "SAMLAssertion": _SAMLAssertion, "DurationSeconds": (NullOrUndefined Nothing), "Policy": (NullOrUndefined Nothing) }
+newAssumeRoleWithSAMLRequest _PrincipalArn _RoleArn _SAMLAssertion = AssumeRoleWithSAMLRequest { "PrincipalArn": _PrincipalArn, "RoleArn": _RoleArn, "SAMLAssertion": _SAMLAssertion, "DurationSeconds": Nothing, "Policy": Nothing }
 
 -- | Constructs AssumeRoleWithSAMLRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAssumeRoleWithSAMLRequest' :: ArnType' -> ArnType' -> SAMLAssertionType -> ( { "RoleArn" :: (ArnType') , "PrincipalArn" :: (ArnType') , "SAMLAssertion" :: (SAMLAssertionType) , "Policy" :: NullOrUndefined (SessionPolicyDocumentType') , "DurationSeconds" :: NullOrUndefined (RoleDurationSecondsType') } -> {"RoleArn" :: (ArnType') , "PrincipalArn" :: (ArnType') , "SAMLAssertion" :: (SAMLAssertionType) , "Policy" :: NullOrUndefined (SessionPolicyDocumentType') , "DurationSeconds" :: NullOrUndefined (RoleDurationSecondsType') } ) -> AssumeRoleWithSAMLRequest
-newAssumeRoleWithSAMLRequest' _PrincipalArn _RoleArn _SAMLAssertion customize = (AssumeRoleWithSAMLRequest <<< customize) { "PrincipalArn": _PrincipalArn, "RoleArn": _RoleArn, "SAMLAssertion": _SAMLAssertion, "DurationSeconds": (NullOrUndefined Nothing), "Policy": (NullOrUndefined Nothing) }
+newAssumeRoleWithSAMLRequest' :: ArnType' -> ArnType' -> SAMLAssertionType -> ( { "RoleArn" :: (ArnType') , "PrincipalArn" :: (ArnType') , "SAMLAssertion" :: (SAMLAssertionType) , "Policy" :: Maybe (SessionPolicyDocumentType') , "DurationSeconds" :: Maybe (RoleDurationSecondsType') } -> {"RoleArn" :: (ArnType') , "PrincipalArn" :: (ArnType') , "SAMLAssertion" :: (SAMLAssertionType) , "Policy" :: Maybe (SessionPolicyDocumentType') , "DurationSeconds" :: Maybe (RoleDurationSecondsType') } ) -> AssumeRoleWithSAMLRequest
+newAssumeRoleWithSAMLRequest' _PrincipalArn _RoleArn _SAMLAssertion customize = (AssumeRoleWithSAMLRequest <<< customize) { "PrincipalArn": _PrincipalArn, "RoleArn": _RoleArn, "SAMLAssertion": _SAMLAssertion, "DurationSeconds": Nothing, "Policy": Nothing }
 
 
 
 -- | <p>Contains the response to a successful <a>AssumeRoleWithSAML</a> request, including temporary AWS credentials that can be used to make AWS requests. </p>
 newtype AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse 
-  { "Credentials" :: NullOrUndefined (Credentials)
-  , "AssumedRoleUser" :: NullOrUndefined (AssumedRoleUser)
-  , "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType')
-  , "Subject" :: NullOrUndefined (Subject)
-  , "SubjectType" :: NullOrUndefined (SubjectType)
-  , "Issuer" :: NullOrUndefined (Issuer)
-  , "Audience" :: NullOrUndefined (Audience)
-  , "NameQualifier" :: NullOrUndefined (NameQualifier)
+  { "Credentials" :: Maybe (Credentials)
+  , "AssumedRoleUser" :: Maybe (AssumedRoleUser)
+  , "PackedPolicySize" :: Maybe (NonNegativeIntegerType')
+  , "Subject" :: Maybe (Subject)
+  , "SubjectType" :: Maybe (SubjectType)
+  , "Issuer" :: Maybe (Issuer)
+  , "Audience" :: Maybe (Audience)
+  , "NameQualifier" :: Maybe (NameQualifier)
   }
 derive instance newtypeAssumeRoleWithSAMLResponse :: Newtype AssumeRoleWithSAMLResponse _
 derive instance repGenericAssumeRoleWithSAMLResponse :: Generic AssumeRoleWithSAMLResponse _
@@ -110,12 +109,12 @@ instance encodeAssumeRoleWithSAMLResponse :: Encode AssumeRoleWithSAMLResponse w
 
 -- | Constructs AssumeRoleWithSAMLResponse from required parameters
 newAssumeRoleWithSAMLResponse :: AssumeRoleWithSAMLResponse
-newAssumeRoleWithSAMLResponse  = AssumeRoleWithSAMLResponse { "AssumedRoleUser": (NullOrUndefined Nothing), "Audience": (NullOrUndefined Nothing), "Credentials": (NullOrUndefined Nothing), "Issuer": (NullOrUndefined Nothing), "NameQualifier": (NullOrUndefined Nothing), "PackedPolicySize": (NullOrUndefined Nothing), "Subject": (NullOrUndefined Nothing), "SubjectType": (NullOrUndefined Nothing) }
+newAssumeRoleWithSAMLResponse  = AssumeRoleWithSAMLResponse { "AssumedRoleUser": Nothing, "Audience": Nothing, "Credentials": Nothing, "Issuer": Nothing, "NameQualifier": Nothing, "PackedPolicySize": Nothing, "Subject": Nothing, "SubjectType": Nothing }
 
 -- | Constructs AssumeRoleWithSAMLResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAssumeRoleWithSAMLResponse' :: ( { "Credentials" :: NullOrUndefined (Credentials) , "AssumedRoleUser" :: NullOrUndefined (AssumedRoleUser) , "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType') , "Subject" :: NullOrUndefined (Subject) , "SubjectType" :: NullOrUndefined (SubjectType) , "Issuer" :: NullOrUndefined (Issuer) , "Audience" :: NullOrUndefined (Audience) , "NameQualifier" :: NullOrUndefined (NameQualifier) } -> {"Credentials" :: NullOrUndefined (Credentials) , "AssumedRoleUser" :: NullOrUndefined (AssumedRoleUser) , "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType') , "Subject" :: NullOrUndefined (Subject) , "SubjectType" :: NullOrUndefined (SubjectType) , "Issuer" :: NullOrUndefined (Issuer) , "Audience" :: NullOrUndefined (Audience) , "NameQualifier" :: NullOrUndefined (NameQualifier) } ) -> AssumeRoleWithSAMLResponse
-newAssumeRoleWithSAMLResponse'  customize = (AssumeRoleWithSAMLResponse <<< customize) { "AssumedRoleUser": (NullOrUndefined Nothing), "Audience": (NullOrUndefined Nothing), "Credentials": (NullOrUndefined Nothing), "Issuer": (NullOrUndefined Nothing), "NameQualifier": (NullOrUndefined Nothing), "PackedPolicySize": (NullOrUndefined Nothing), "Subject": (NullOrUndefined Nothing), "SubjectType": (NullOrUndefined Nothing) }
+newAssumeRoleWithSAMLResponse' :: ( { "Credentials" :: Maybe (Credentials) , "AssumedRoleUser" :: Maybe (AssumedRoleUser) , "PackedPolicySize" :: Maybe (NonNegativeIntegerType') , "Subject" :: Maybe (Subject) , "SubjectType" :: Maybe (SubjectType) , "Issuer" :: Maybe (Issuer) , "Audience" :: Maybe (Audience) , "NameQualifier" :: Maybe (NameQualifier) } -> {"Credentials" :: Maybe (Credentials) , "AssumedRoleUser" :: Maybe (AssumedRoleUser) , "PackedPolicySize" :: Maybe (NonNegativeIntegerType') , "Subject" :: Maybe (Subject) , "SubjectType" :: Maybe (SubjectType) , "Issuer" :: Maybe (Issuer) , "Audience" :: Maybe (Audience) , "NameQualifier" :: Maybe (NameQualifier) } ) -> AssumeRoleWithSAMLResponse
+newAssumeRoleWithSAMLResponse'  customize = (AssumeRoleWithSAMLResponse <<< customize) { "AssumedRoleUser": Nothing, "Audience": Nothing, "Credentials": Nothing, "Issuer": Nothing, "NameQualifier": Nothing, "PackedPolicySize": Nothing, "Subject": Nothing, "SubjectType": Nothing }
 
 
 
@@ -123,9 +122,9 @@ newtype AssumeRoleWithWebIdentityRequest = AssumeRoleWithWebIdentityRequest
   { "RoleArn" :: (ArnType')
   , "RoleSessionName" :: (RoleSessionNameType')
   , "WebIdentityToken" :: (ClientTokenType')
-  , "ProviderId" :: NullOrUndefined (UrlType')
-  , "Policy" :: NullOrUndefined (SessionPolicyDocumentType')
-  , "DurationSeconds" :: NullOrUndefined (RoleDurationSecondsType')
+  , "ProviderId" :: Maybe (UrlType')
+  , "Policy" :: Maybe (SessionPolicyDocumentType')
+  , "DurationSeconds" :: Maybe (RoleDurationSecondsType')
   }
 derive instance newtypeAssumeRoleWithWebIdentityRequest :: Newtype AssumeRoleWithWebIdentityRequest _
 derive instance repGenericAssumeRoleWithWebIdentityRequest :: Generic AssumeRoleWithWebIdentityRequest _
@@ -135,23 +134,23 @@ instance encodeAssumeRoleWithWebIdentityRequest :: Encode AssumeRoleWithWebIdent
 
 -- | Constructs AssumeRoleWithWebIdentityRequest from required parameters
 newAssumeRoleWithWebIdentityRequest :: ArnType' -> RoleSessionNameType' -> ClientTokenType' -> AssumeRoleWithWebIdentityRequest
-newAssumeRoleWithWebIdentityRequest _RoleArn _RoleSessionName _WebIdentityToken = AssumeRoleWithWebIdentityRequest { "RoleArn": _RoleArn, "RoleSessionName": _RoleSessionName, "WebIdentityToken": _WebIdentityToken, "DurationSeconds": (NullOrUndefined Nothing), "Policy": (NullOrUndefined Nothing), "ProviderId": (NullOrUndefined Nothing) }
+newAssumeRoleWithWebIdentityRequest _RoleArn _RoleSessionName _WebIdentityToken = AssumeRoleWithWebIdentityRequest { "RoleArn": _RoleArn, "RoleSessionName": _RoleSessionName, "WebIdentityToken": _WebIdentityToken, "DurationSeconds": Nothing, "Policy": Nothing, "ProviderId": Nothing }
 
 -- | Constructs AssumeRoleWithWebIdentityRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAssumeRoleWithWebIdentityRequest' :: ArnType' -> RoleSessionNameType' -> ClientTokenType' -> ( { "RoleArn" :: (ArnType') , "RoleSessionName" :: (RoleSessionNameType') , "WebIdentityToken" :: (ClientTokenType') , "ProviderId" :: NullOrUndefined (UrlType') , "Policy" :: NullOrUndefined (SessionPolicyDocumentType') , "DurationSeconds" :: NullOrUndefined (RoleDurationSecondsType') } -> {"RoleArn" :: (ArnType') , "RoleSessionName" :: (RoleSessionNameType') , "WebIdentityToken" :: (ClientTokenType') , "ProviderId" :: NullOrUndefined (UrlType') , "Policy" :: NullOrUndefined (SessionPolicyDocumentType') , "DurationSeconds" :: NullOrUndefined (RoleDurationSecondsType') } ) -> AssumeRoleWithWebIdentityRequest
-newAssumeRoleWithWebIdentityRequest' _RoleArn _RoleSessionName _WebIdentityToken customize = (AssumeRoleWithWebIdentityRequest <<< customize) { "RoleArn": _RoleArn, "RoleSessionName": _RoleSessionName, "WebIdentityToken": _WebIdentityToken, "DurationSeconds": (NullOrUndefined Nothing), "Policy": (NullOrUndefined Nothing), "ProviderId": (NullOrUndefined Nothing) }
+newAssumeRoleWithWebIdentityRequest' :: ArnType' -> RoleSessionNameType' -> ClientTokenType' -> ( { "RoleArn" :: (ArnType') , "RoleSessionName" :: (RoleSessionNameType') , "WebIdentityToken" :: (ClientTokenType') , "ProviderId" :: Maybe (UrlType') , "Policy" :: Maybe (SessionPolicyDocumentType') , "DurationSeconds" :: Maybe (RoleDurationSecondsType') } -> {"RoleArn" :: (ArnType') , "RoleSessionName" :: (RoleSessionNameType') , "WebIdentityToken" :: (ClientTokenType') , "ProviderId" :: Maybe (UrlType') , "Policy" :: Maybe (SessionPolicyDocumentType') , "DurationSeconds" :: Maybe (RoleDurationSecondsType') } ) -> AssumeRoleWithWebIdentityRequest
+newAssumeRoleWithWebIdentityRequest' _RoleArn _RoleSessionName _WebIdentityToken customize = (AssumeRoleWithWebIdentityRequest <<< customize) { "RoleArn": _RoleArn, "RoleSessionName": _RoleSessionName, "WebIdentityToken": _WebIdentityToken, "DurationSeconds": Nothing, "Policy": Nothing, "ProviderId": Nothing }
 
 
 
 -- | <p>Contains the response to a successful <a>AssumeRoleWithWebIdentity</a> request, including temporary AWS credentials that can be used to make AWS requests. </p>
 newtype AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse 
-  { "Credentials" :: NullOrUndefined (Credentials)
-  , "SubjectFromWebIdentityToken" :: NullOrUndefined (WebIdentitySubjectType')
-  , "AssumedRoleUser" :: NullOrUndefined (AssumedRoleUser)
-  , "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType')
-  , "Provider" :: NullOrUndefined (Issuer)
-  , "Audience" :: NullOrUndefined (Audience)
+  { "Credentials" :: Maybe (Credentials)
+  , "SubjectFromWebIdentityToken" :: Maybe (WebIdentitySubjectType')
+  , "AssumedRoleUser" :: Maybe (AssumedRoleUser)
+  , "PackedPolicySize" :: Maybe (NonNegativeIntegerType')
+  , "Provider" :: Maybe (Issuer)
+  , "Audience" :: Maybe (Audience)
   }
 derive instance newtypeAssumeRoleWithWebIdentityResponse :: Newtype AssumeRoleWithWebIdentityResponse _
 derive instance repGenericAssumeRoleWithWebIdentityResponse :: Generic AssumeRoleWithWebIdentityResponse _
@@ -161,12 +160,12 @@ instance encodeAssumeRoleWithWebIdentityResponse :: Encode AssumeRoleWithWebIden
 
 -- | Constructs AssumeRoleWithWebIdentityResponse from required parameters
 newAssumeRoleWithWebIdentityResponse :: AssumeRoleWithWebIdentityResponse
-newAssumeRoleWithWebIdentityResponse  = AssumeRoleWithWebIdentityResponse { "AssumedRoleUser": (NullOrUndefined Nothing), "Audience": (NullOrUndefined Nothing), "Credentials": (NullOrUndefined Nothing), "PackedPolicySize": (NullOrUndefined Nothing), "Provider": (NullOrUndefined Nothing), "SubjectFromWebIdentityToken": (NullOrUndefined Nothing) }
+newAssumeRoleWithWebIdentityResponse  = AssumeRoleWithWebIdentityResponse { "AssumedRoleUser": Nothing, "Audience": Nothing, "Credentials": Nothing, "PackedPolicySize": Nothing, "Provider": Nothing, "SubjectFromWebIdentityToken": Nothing }
 
 -- | Constructs AssumeRoleWithWebIdentityResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAssumeRoleWithWebIdentityResponse' :: ( { "Credentials" :: NullOrUndefined (Credentials) , "SubjectFromWebIdentityToken" :: NullOrUndefined (WebIdentitySubjectType') , "AssumedRoleUser" :: NullOrUndefined (AssumedRoleUser) , "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType') , "Provider" :: NullOrUndefined (Issuer) , "Audience" :: NullOrUndefined (Audience) } -> {"Credentials" :: NullOrUndefined (Credentials) , "SubjectFromWebIdentityToken" :: NullOrUndefined (WebIdentitySubjectType') , "AssumedRoleUser" :: NullOrUndefined (AssumedRoleUser) , "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType') , "Provider" :: NullOrUndefined (Issuer) , "Audience" :: NullOrUndefined (Audience) } ) -> AssumeRoleWithWebIdentityResponse
-newAssumeRoleWithWebIdentityResponse'  customize = (AssumeRoleWithWebIdentityResponse <<< customize) { "AssumedRoleUser": (NullOrUndefined Nothing), "Audience": (NullOrUndefined Nothing), "Credentials": (NullOrUndefined Nothing), "PackedPolicySize": (NullOrUndefined Nothing), "Provider": (NullOrUndefined Nothing), "SubjectFromWebIdentityToken": (NullOrUndefined Nothing) }
+newAssumeRoleWithWebIdentityResponse' :: ( { "Credentials" :: Maybe (Credentials) , "SubjectFromWebIdentityToken" :: Maybe (WebIdentitySubjectType') , "AssumedRoleUser" :: Maybe (AssumedRoleUser) , "PackedPolicySize" :: Maybe (NonNegativeIntegerType') , "Provider" :: Maybe (Issuer) , "Audience" :: Maybe (Audience) } -> {"Credentials" :: Maybe (Credentials) , "SubjectFromWebIdentityToken" :: Maybe (WebIdentitySubjectType') , "AssumedRoleUser" :: Maybe (AssumedRoleUser) , "PackedPolicySize" :: Maybe (NonNegativeIntegerType') , "Provider" :: Maybe (Issuer) , "Audience" :: Maybe (Audience) } ) -> AssumeRoleWithWebIdentityResponse
+newAssumeRoleWithWebIdentityResponse'  customize = (AssumeRoleWithWebIdentityResponse <<< customize) { "AssumedRoleUser": Nothing, "Audience": Nothing, "Credentials": Nothing, "PackedPolicySize": Nothing, "Provider": Nothing, "SubjectFromWebIdentityToken": Nothing }
 
 
 
@@ -247,7 +246,7 @@ newDecodeAuthorizationMessageRequest' _EncodedMessage customize = (DecodeAuthori
 
 -- | <p>A document that contains additional information about the authorization status of a request from an encoded message that is returned in response to an AWS request.</p>
 newtype DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse 
-  { "DecodedMessage" :: NullOrUndefined (DecodedMessageType')
+  { "DecodedMessage" :: Maybe (DecodedMessageType')
   }
 derive instance newtypeDecodeAuthorizationMessageResponse :: Newtype DecodeAuthorizationMessageResponse _
 derive instance repGenericDecodeAuthorizationMessageResponse :: Generic DecodeAuthorizationMessageResponse _
@@ -257,18 +256,18 @@ instance encodeDecodeAuthorizationMessageResponse :: Encode DecodeAuthorizationM
 
 -- | Constructs DecodeAuthorizationMessageResponse from required parameters
 newDecodeAuthorizationMessageResponse :: DecodeAuthorizationMessageResponse
-newDecodeAuthorizationMessageResponse  = DecodeAuthorizationMessageResponse { "DecodedMessage": (NullOrUndefined Nothing) }
+newDecodeAuthorizationMessageResponse  = DecodeAuthorizationMessageResponse { "DecodedMessage": Nothing }
 
 -- | Constructs DecodeAuthorizationMessageResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDecodeAuthorizationMessageResponse' :: ( { "DecodedMessage" :: NullOrUndefined (DecodedMessageType') } -> {"DecodedMessage" :: NullOrUndefined (DecodedMessageType') } ) -> DecodeAuthorizationMessageResponse
-newDecodeAuthorizationMessageResponse'  customize = (DecodeAuthorizationMessageResponse <<< customize) { "DecodedMessage": (NullOrUndefined Nothing) }
+newDecodeAuthorizationMessageResponse' :: ( { "DecodedMessage" :: Maybe (DecodedMessageType') } -> {"DecodedMessage" :: Maybe (DecodedMessageType') } ) -> DecodeAuthorizationMessageResponse
+newDecodeAuthorizationMessageResponse'  customize = (DecodeAuthorizationMessageResponse <<< customize) { "DecodedMessage": Nothing }
 
 
 
 -- | <p>The web identity token that was passed is expired or is not valid. Get a new identity token from the identity provider and then retry the request.</p>
 newtype ExpiredTokenException = ExpiredTokenException 
-  { "message" :: NullOrUndefined (ExpiredIdentityTokenMessage')
+  { "message" :: Maybe (ExpiredIdentityTokenMessage')
   }
 derive instance newtypeExpiredTokenException :: Newtype ExpiredTokenException _
 derive instance repGenericExpiredTokenException :: Generic ExpiredTokenException _
@@ -278,12 +277,12 @@ instance encodeExpiredTokenException :: Encode ExpiredTokenException where encod
 
 -- | Constructs ExpiredTokenException from required parameters
 newExpiredTokenException :: ExpiredTokenException
-newExpiredTokenException  = ExpiredTokenException { "message": (NullOrUndefined Nothing) }
+newExpiredTokenException  = ExpiredTokenException { "message": Nothing }
 
 -- | Constructs ExpiredTokenException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newExpiredTokenException' :: ( { "message" :: NullOrUndefined (ExpiredIdentityTokenMessage') } -> {"message" :: NullOrUndefined (ExpiredIdentityTokenMessage') } ) -> ExpiredTokenException
-newExpiredTokenException'  customize = (ExpiredTokenException <<< customize) { "message": (NullOrUndefined Nothing) }
+newExpiredTokenException' :: ( { "message" :: Maybe (ExpiredIdentityTokenMessage') } -> {"message" :: Maybe (ExpiredIdentityTokenMessage') } ) -> ExpiredTokenException
+newExpiredTokenException'  customize = (ExpiredTokenException <<< customize) { "message": Nothing }
 
 
 
@@ -320,9 +319,9 @@ instance encodeGetCallerIdentityRequest :: Encode GetCallerIdentityRequest where
 
 -- | <p>Contains the response to a successful <a>GetCallerIdentity</a> request, including information about the entity making the request.</p>
 newtype GetCallerIdentityResponse = GetCallerIdentityResponse 
-  { "UserId" :: NullOrUndefined (UserIdType')
-  , "Account" :: NullOrUndefined (AccountType')
-  , "Arn" :: NullOrUndefined (ArnType')
+  { "UserId" :: Maybe (UserIdType')
+  , "Account" :: Maybe (AccountType')
+  , "Arn" :: Maybe (ArnType')
   }
 derive instance newtypeGetCallerIdentityResponse :: Newtype GetCallerIdentityResponse _
 derive instance repGenericGetCallerIdentityResponse :: Generic GetCallerIdentityResponse _
@@ -332,19 +331,19 @@ instance encodeGetCallerIdentityResponse :: Encode GetCallerIdentityResponse whe
 
 -- | Constructs GetCallerIdentityResponse from required parameters
 newGetCallerIdentityResponse :: GetCallerIdentityResponse
-newGetCallerIdentityResponse  = GetCallerIdentityResponse { "Account": (NullOrUndefined Nothing), "Arn": (NullOrUndefined Nothing), "UserId": (NullOrUndefined Nothing) }
+newGetCallerIdentityResponse  = GetCallerIdentityResponse { "Account": Nothing, "Arn": Nothing, "UserId": Nothing }
 
 -- | Constructs GetCallerIdentityResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetCallerIdentityResponse' :: ( { "UserId" :: NullOrUndefined (UserIdType') , "Account" :: NullOrUndefined (AccountType') , "Arn" :: NullOrUndefined (ArnType') } -> {"UserId" :: NullOrUndefined (UserIdType') , "Account" :: NullOrUndefined (AccountType') , "Arn" :: NullOrUndefined (ArnType') } ) -> GetCallerIdentityResponse
-newGetCallerIdentityResponse'  customize = (GetCallerIdentityResponse <<< customize) { "Account": (NullOrUndefined Nothing), "Arn": (NullOrUndefined Nothing), "UserId": (NullOrUndefined Nothing) }
+newGetCallerIdentityResponse' :: ( { "UserId" :: Maybe (UserIdType') , "Account" :: Maybe (AccountType') , "Arn" :: Maybe (ArnType') } -> {"UserId" :: Maybe (UserIdType') , "Account" :: Maybe (AccountType') , "Arn" :: Maybe (ArnType') } ) -> GetCallerIdentityResponse
+newGetCallerIdentityResponse'  customize = (GetCallerIdentityResponse <<< customize) { "Account": Nothing, "Arn": Nothing, "UserId": Nothing }
 
 
 
 newtype GetFederationTokenRequest = GetFederationTokenRequest 
   { "Name" :: (UserNameType')
-  , "Policy" :: NullOrUndefined (SessionPolicyDocumentType')
-  , "DurationSeconds" :: NullOrUndefined (DurationSecondsType')
+  , "Policy" :: Maybe (SessionPolicyDocumentType')
+  , "DurationSeconds" :: Maybe (DurationSecondsType')
   }
 derive instance newtypeGetFederationTokenRequest :: Newtype GetFederationTokenRequest _
 derive instance repGenericGetFederationTokenRequest :: Generic GetFederationTokenRequest _
@@ -354,20 +353,20 @@ instance encodeGetFederationTokenRequest :: Encode GetFederationTokenRequest whe
 
 -- | Constructs GetFederationTokenRequest from required parameters
 newGetFederationTokenRequest :: UserNameType' -> GetFederationTokenRequest
-newGetFederationTokenRequest _Name = GetFederationTokenRequest { "Name": _Name, "DurationSeconds": (NullOrUndefined Nothing), "Policy": (NullOrUndefined Nothing) }
+newGetFederationTokenRequest _Name = GetFederationTokenRequest { "Name": _Name, "DurationSeconds": Nothing, "Policy": Nothing }
 
 -- | Constructs GetFederationTokenRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetFederationTokenRequest' :: UserNameType' -> ( { "Name" :: (UserNameType') , "Policy" :: NullOrUndefined (SessionPolicyDocumentType') , "DurationSeconds" :: NullOrUndefined (DurationSecondsType') } -> {"Name" :: (UserNameType') , "Policy" :: NullOrUndefined (SessionPolicyDocumentType') , "DurationSeconds" :: NullOrUndefined (DurationSecondsType') } ) -> GetFederationTokenRequest
-newGetFederationTokenRequest' _Name customize = (GetFederationTokenRequest <<< customize) { "Name": _Name, "DurationSeconds": (NullOrUndefined Nothing), "Policy": (NullOrUndefined Nothing) }
+newGetFederationTokenRequest' :: UserNameType' -> ( { "Name" :: (UserNameType') , "Policy" :: Maybe (SessionPolicyDocumentType') , "DurationSeconds" :: Maybe (DurationSecondsType') } -> {"Name" :: (UserNameType') , "Policy" :: Maybe (SessionPolicyDocumentType') , "DurationSeconds" :: Maybe (DurationSecondsType') } ) -> GetFederationTokenRequest
+newGetFederationTokenRequest' _Name customize = (GetFederationTokenRequest <<< customize) { "Name": _Name, "DurationSeconds": Nothing, "Policy": Nothing }
 
 
 
 -- | <p>Contains the response to a successful <a>GetFederationToken</a> request, including temporary AWS credentials that can be used to make AWS requests. </p>
 newtype GetFederationTokenResponse = GetFederationTokenResponse 
-  { "Credentials" :: NullOrUndefined (Credentials)
-  , "FederatedUser" :: NullOrUndefined (FederatedUser)
-  , "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType')
+  { "Credentials" :: Maybe (Credentials)
+  , "FederatedUser" :: Maybe (FederatedUser)
+  , "PackedPolicySize" :: Maybe (NonNegativeIntegerType')
   }
 derive instance newtypeGetFederationTokenResponse :: Newtype GetFederationTokenResponse _
 derive instance repGenericGetFederationTokenResponse :: Generic GetFederationTokenResponse _
@@ -377,19 +376,19 @@ instance encodeGetFederationTokenResponse :: Encode GetFederationTokenResponse w
 
 -- | Constructs GetFederationTokenResponse from required parameters
 newGetFederationTokenResponse :: GetFederationTokenResponse
-newGetFederationTokenResponse  = GetFederationTokenResponse { "Credentials": (NullOrUndefined Nothing), "FederatedUser": (NullOrUndefined Nothing), "PackedPolicySize": (NullOrUndefined Nothing) }
+newGetFederationTokenResponse  = GetFederationTokenResponse { "Credentials": Nothing, "FederatedUser": Nothing, "PackedPolicySize": Nothing }
 
 -- | Constructs GetFederationTokenResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetFederationTokenResponse' :: ( { "Credentials" :: NullOrUndefined (Credentials) , "FederatedUser" :: NullOrUndefined (FederatedUser) , "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType') } -> {"Credentials" :: NullOrUndefined (Credentials) , "FederatedUser" :: NullOrUndefined (FederatedUser) , "PackedPolicySize" :: NullOrUndefined (NonNegativeIntegerType') } ) -> GetFederationTokenResponse
-newGetFederationTokenResponse'  customize = (GetFederationTokenResponse <<< customize) { "Credentials": (NullOrUndefined Nothing), "FederatedUser": (NullOrUndefined Nothing), "PackedPolicySize": (NullOrUndefined Nothing) }
+newGetFederationTokenResponse' :: ( { "Credentials" :: Maybe (Credentials) , "FederatedUser" :: Maybe (FederatedUser) , "PackedPolicySize" :: Maybe (NonNegativeIntegerType') } -> {"Credentials" :: Maybe (Credentials) , "FederatedUser" :: Maybe (FederatedUser) , "PackedPolicySize" :: Maybe (NonNegativeIntegerType') } ) -> GetFederationTokenResponse
+newGetFederationTokenResponse'  customize = (GetFederationTokenResponse <<< customize) { "Credentials": Nothing, "FederatedUser": Nothing, "PackedPolicySize": Nothing }
 
 
 
 newtype GetSessionTokenRequest = GetSessionTokenRequest 
-  { "DurationSeconds" :: NullOrUndefined (DurationSecondsType')
-  , "SerialNumber" :: NullOrUndefined (SerialNumberType')
-  , "TokenCode" :: NullOrUndefined (TokenCodeType')
+  { "DurationSeconds" :: Maybe (DurationSecondsType')
+  , "SerialNumber" :: Maybe (SerialNumberType')
+  , "TokenCode" :: Maybe (TokenCodeType')
   }
 derive instance newtypeGetSessionTokenRequest :: Newtype GetSessionTokenRequest _
 derive instance repGenericGetSessionTokenRequest :: Generic GetSessionTokenRequest _
@@ -399,18 +398,18 @@ instance encodeGetSessionTokenRequest :: Encode GetSessionTokenRequest where enc
 
 -- | Constructs GetSessionTokenRequest from required parameters
 newGetSessionTokenRequest :: GetSessionTokenRequest
-newGetSessionTokenRequest  = GetSessionTokenRequest { "DurationSeconds": (NullOrUndefined Nothing), "SerialNumber": (NullOrUndefined Nothing), "TokenCode": (NullOrUndefined Nothing) }
+newGetSessionTokenRequest  = GetSessionTokenRequest { "DurationSeconds": Nothing, "SerialNumber": Nothing, "TokenCode": Nothing }
 
 -- | Constructs GetSessionTokenRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetSessionTokenRequest' :: ( { "DurationSeconds" :: NullOrUndefined (DurationSecondsType') , "SerialNumber" :: NullOrUndefined (SerialNumberType') , "TokenCode" :: NullOrUndefined (TokenCodeType') } -> {"DurationSeconds" :: NullOrUndefined (DurationSecondsType') , "SerialNumber" :: NullOrUndefined (SerialNumberType') , "TokenCode" :: NullOrUndefined (TokenCodeType') } ) -> GetSessionTokenRequest
-newGetSessionTokenRequest'  customize = (GetSessionTokenRequest <<< customize) { "DurationSeconds": (NullOrUndefined Nothing), "SerialNumber": (NullOrUndefined Nothing), "TokenCode": (NullOrUndefined Nothing) }
+newGetSessionTokenRequest' :: ( { "DurationSeconds" :: Maybe (DurationSecondsType') , "SerialNumber" :: Maybe (SerialNumberType') , "TokenCode" :: Maybe (TokenCodeType') } -> {"DurationSeconds" :: Maybe (DurationSecondsType') , "SerialNumber" :: Maybe (SerialNumberType') , "TokenCode" :: Maybe (TokenCodeType') } ) -> GetSessionTokenRequest
+newGetSessionTokenRequest'  customize = (GetSessionTokenRequest <<< customize) { "DurationSeconds": Nothing, "SerialNumber": Nothing, "TokenCode": Nothing }
 
 
 
 -- | <p>Contains the response to a successful <a>GetSessionToken</a> request, including temporary AWS credentials that can be used to make AWS requests. </p>
 newtype GetSessionTokenResponse = GetSessionTokenResponse 
-  { "Credentials" :: NullOrUndefined (Credentials)
+  { "Credentials" :: Maybe (Credentials)
   }
 derive instance newtypeGetSessionTokenResponse :: Newtype GetSessionTokenResponse _
 derive instance repGenericGetSessionTokenResponse :: Generic GetSessionTokenResponse _
@@ -420,18 +419,18 @@ instance encodeGetSessionTokenResponse :: Encode GetSessionTokenResponse where e
 
 -- | Constructs GetSessionTokenResponse from required parameters
 newGetSessionTokenResponse :: GetSessionTokenResponse
-newGetSessionTokenResponse  = GetSessionTokenResponse { "Credentials": (NullOrUndefined Nothing) }
+newGetSessionTokenResponse  = GetSessionTokenResponse { "Credentials": Nothing }
 
 -- | Constructs GetSessionTokenResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetSessionTokenResponse' :: ( { "Credentials" :: NullOrUndefined (Credentials) } -> {"Credentials" :: NullOrUndefined (Credentials) } ) -> GetSessionTokenResponse
-newGetSessionTokenResponse'  customize = (GetSessionTokenResponse <<< customize) { "Credentials": (NullOrUndefined Nothing) }
+newGetSessionTokenResponse' :: ( { "Credentials" :: Maybe (Credentials) } -> {"Credentials" :: Maybe (Credentials) } ) -> GetSessionTokenResponse
+newGetSessionTokenResponse'  customize = (GetSessionTokenResponse <<< customize) { "Credentials": Nothing }
 
 
 
 -- | <p>The request could not be fulfilled because the non-AWS identity provider (IDP) that was asked to verify the incoming identity token could not be reached. This is often a transient error caused by network conditions. Retry the request a limited number of times so that you don't exceed the request rate. If the error persists, the non-AWS identity provider might be down or not responding.</p>
 newtype IDPCommunicationErrorException = IDPCommunicationErrorException 
-  { "message" :: NullOrUndefined (IdpCommunicationErrorMessage')
+  { "message" :: Maybe (IdpCommunicationErrorMessage')
   }
 derive instance newtypeIDPCommunicationErrorException :: Newtype IDPCommunicationErrorException _
 derive instance repGenericIDPCommunicationErrorException :: Generic IDPCommunicationErrorException _
@@ -441,18 +440,18 @@ instance encodeIDPCommunicationErrorException :: Encode IDPCommunicationErrorExc
 
 -- | Constructs IDPCommunicationErrorException from required parameters
 newIDPCommunicationErrorException :: IDPCommunicationErrorException
-newIDPCommunicationErrorException  = IDPCommunicationErrorException { "message": (NullOrUndefined Nothing) }
+newIDPCommunicationErrorException  = IDPCommunicationErrorException { "message": Nothing }
 
 -- | Constructs IDPCommunicationErrorException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newIDPCommunicationErrorException' :: ( { "message" :: NullOrUndefined (IdpCommunicationErrorMessage') } -> {"message" :: NullOrUndefined (IdpCommunicationErrorMessage') } ) -> IDPCommunicationErrorException
-newIDPCommunicationErrorException'  customize = (IDPCommunicationErrorException <<< customize) { "message": (NullOrUndefined Nothing) }
+newIDPCommunicationErrorException' :: ( { "message" :: Maybe (IdpCommunicationErrorMessage') } -> {"message" :: Maybe (IdpCommunicationErrorMessage') } ) -> IDPCommunicationErrorException
+newIDPCommunicationErrorException'  customize = (IDPCommunicationErrorException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The identity provider (IdP) reported that authentication failed. This might be because the claim is invalid.</p> <p>If this error is returned for the <code>AssumeRoleWithWebIdentity</code> operation, it can also mean that the claim has expired or has been explicitly revoked. </p>
 newtype IDPRejectedClaimException = IDPRejectedClaimException 
-  { "message" :: NullOrUndefined (IdpRejectedClaimMessage')
+  { "message" :: Maybe (IdpRejectedClaimMessage')
   }
 derive instance newtypeIDPRejectedClaimException :: Newtype IDPRejectedClaimException _
 derive instance repGenericIDPRejectedClaimException :: Generic IDPRejectedClaimException _
@@ -462,18 +461,18 @@ instance encodeIDPRejectedClaimException :: Encode IDPRejectedClaimException whe
 
 -- | Constructs IDPRejectedClaimException from required parameters
 newIDPRejectedClaimException :: IDPRejectedClaimException
-newIDPRejectedClaimException  = IDPRejectedClaimException { "message": (NullOrUndefined Nothing) }
+newIDPRejectedClaimException  = IDPRejectedClaimException { "message": Nothing }
 
 -- | Constructs IDPRejectedClaimException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newIDPRejectedClaimException' :: ( { "message" :: NullOrUndefined (IdpRejectedClaimMessage') } -> {"message" :: NullOrUndefined (IdpRejectedClaimMessage') } ) -> IDPRejectedClaimException
-newIDPRejectedClaimException'  customize = (IDPRejectedClaimException <<< customize) { "message": (NullOrUndefined Nothing) }
+newIDPRejectedClaimException' :: ( { "message" :: Maybe (IdpRejectedClaimMessage') } -> {"message" :: Maybe (IdpRejectedClaimMessage') } ) -> IDPRejectedClaimException
+newIDPRejectedClaimException'  customize = (IDPRejectedClaimException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The error returned if the message passed to <code>DecodeAuthorizationMessage</code> was invalid. This can happen if the token contains invalid characters, such as linebreaks. </p>
 newtype InvalidAuthorizationMessageException = InvalidAuthorizationMessageException 
-  { "message" :: NullOrUndefined (InvalidAuthorizationMessage')
+  { "message" :: Maybe (InvalidAuthorizationMessage')
   }
 derive instance newtypeInvalidAuthorizationMessageException :: Newtype InvalidAuthorizationMessageException _
 derive instance repGenericInvalidAuthorizationMessageException :: Generic InvalidAuthorizationMessageException _
@@ -483,18 +482,18 @@ instance encodeInvalidAuthorizationMessageException :: Encode InvalidAuthorizati
 
 -- | Constructs InvalidAuthorizationMessageException from required parameters
 newInvalidAuthorizationMessageException :: InvalidAuthorizationMessageException
-newInvalidAuthorizationMessageException  = InvalidAuthorizationMessageException { "message": (NullOrUndefined Nothing) }
+newInvalidAuthorizationMessageException  = InvalidAuthorizationMessageException { "message": Nothing }
 
 -- | Constructs InvalidAuthorizationMessageException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidAuthorizationMessageException' :: ( { "message" :: NullOrUndefined (InvalidAuthorizationMessage') } -> {"message" :: NullOrUndefined (InvalidAuthorizationMessage') } ) -> InvalidAuthorizationMessageException
-newInvalidAuthorizationMessageException'  customize = (InvalidAuthorizationMessageException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidAuthorizationMessageException' :: ( { "message" :: Maybe (InvalidAuthorizationMessage') } -> {"message" :: Maybe (InvalidAuthorizationMessage') } ) -> InvalidAuthorizationMessageException
+newInvalidAuthorizationMessageException'  customize = (InvalidAuthorizationMessageException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The web identity token that was passed could not be validated by AWS. Get a new identity token from the identity provider and then retry the request.</p>
 newtype InvalidIdentityTokenException = InvalidIdentityTokenException 
-  { "message" :: NullOrUndefined (InvalidIdentityTokenMessage')
+  { "message" :: Maybe (InvalidIdentityTokenMessage')
   }
 derive instance newtypeInvalidIdentityTokenException :: Newtype InvalidIdentityTokenException _
 derive instance repGenericInvalidIdentityTokenException :: Generic InvalidIdentityTokenException _
@@ -504,12 +503,12 @@ instance encodeInvalidIdentityTokenException :: Encode InvalidIdentityTokenExcep
 
 -- | Constructs InvalidIdentityTokenException from required parameters
 newInvalidIdentityTokenException :: InvalidIdentityTokenException
-newInvalidIdentityTokenException  = InvalidIdentityTokenException { "message": (NullOrUndefined Nothing) }
+newInvalidIdentityTokenException  = InvalidIdentityTokenException { "message": Nothing }
 
 -- | Constructs InvalidIdentityTokenException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidIdentityTokenException' :: ( { "message" :: NullOrUndefined (InvalidIdentityTokenMessage') } -> {"message" :: NullOrUndefined (InvalidIdentityTokenMessage') } ) -> InvalidIdentityTokenException
-newInvalidIdentityTokenException'  customize = (InvalidIdentityTokenException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidIdentityTokenException' :: ( { "message" :: Maybe (InvalidIdentityTokenMessage') } -> {"message" :: Maybe (InvalidIdentityTokenMessage') } ) -> InvalidIdentityTokenException
+newInvalidIdentityTokenException'  customize = (InvalidIdentityTokenException <<< customize) { "message": Nothing }
 
 
 
@@ -524,7 +523,7 @@ instance encodeIssuer :: Encode Issuer where encode = genericEncode options
 
 -- | <p>The request was rejected because the policy document was malformed. The error message describes the specific error.</p>
 newtype MalformedPolicyDocumentException = MalformedPolicyDocumentException 
-  { "message" :: NullOrUndefined (MalformedPolicyDocumentMessage')
+  { "message" :: Maybe (MalformedPolicyDocumentMessage')
   }
 derive instance newtypeMalformedPolicyDocumentException :: Newtype MalformedPolicyDocumentException _
 derive instance repGenericMalformedPolicyDocumentException :: Generic MalformedPolicyDocumentException _
@@ -534,12 +533,12 @@ instance encodeMalformedPolicyDocumentException :: Encode MalformedPolicyDocumen
 
 -- | Constructs MalformedPolicyDocumentException from required parameters
 newMalformedPolicyDocumentException :: MalformedPolicyDocumentException
-newMalformedPolicyDocumentException  = MalformedPolicyDocumentException { "message": (NullOrUndefined Nothing) }
+newMalformedPolicyDocumentException  = MalformedPolicyDocumentException { "message": Nothing }
 
 -- | Constructs MalformedPolicyDocumentException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMalformedPolicyDocumentException' :: ( { "message" :: NullOrUndefined (MalformedPolicyDocumentMessage') } -> {"message" :: NullOrUndefined (MalformedPolicyDocumentMessage') } ) -> MalformedPolicyDocumentException
-newMalformedPolicyDocumentException'  customize = (MalformedPolicyDocumentException <<< customize) { "message": (NullOrUndefined Nothing) }
+newMalformedPolicyDocumentException' :: ( { "message" :: Maybe (MalformedPolicyDocumentMessage') } -> {"message" :: Maybe (MalformedPolicyDocumentMessage') } ) -> MalformedPolicyDocumentException
+newMalformedPolicyDocumentException'  customize = (MalformedPolicyDocumentException <<< customize) { "message": Nothing }
 
 
 
@@ -554,7 +553,7 @@ instance encodeNameQualifier :: Encode NameQualifier where encode = genericEncod
 
 -- | <p>The request was rejected because the policy document was too large. The error message describes how big the policy document is, in packed form, as a percentage of what the API allows.</p>
 newtype PackedPolicyTooLargeException = PackedPolicyTooLargeException 
-  { "message" :: NullOrUndefined (PackedPolicyTooLargeMessage')
+  { "message" :: Maybe (PackedPolicyTooLargeMessage')
   }
 derive instance newtypePackedPolicyTooLargeException :: Newtype PackedPolicyTooLargeException _
 derive instance repGenericPackedPolicyTooLargeException :: Generic PackedPolicyTooLargeException _
@@ -564,18 +563,18 @@ instance encodePackedPolicyTooLargeException :: Encode PackedPolicyTooLargeExcep
 
 -- | Constructs PackedPolicyTooLargeException from required parameters
 newPackedPolicyTooLargeException :: PackedPolicyTooLargeException
-newPackedPolicyTooLargeException  = PackedPolicyTooLargeException { "message": (NullOrUndefined Nothing) }
+newPackedPolicyTooLargeException  = PackedPolicyTooLargeException { "message": Nothing }
 
 -- | Constructs PackedPolicyTooLargeException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPackedPolicyTooLargeException' :: ( { "message" :: NullOrUndefined (PackedPolicyTooLargeMessage') } -> {"message" :: NullOrUndefined (PackedPolicyTooLargeMessage') } ) -> PackedPolicyTooLargeException
-newPackedPolicyTooLargeException'  customize = (PackedPolicyTooLargeException <<< customize) { "message": (NullOrUndefined Nothing) }
+newPackedPolicyTooLargeException' :: ( { "message" :: Maybe (PackedPolicyTooLargeMessage') } -> {"message" :: Maybe (PackedPolicyTooLargeMessage') } ) -> PackedPolicyTooLargeException
+newPackedPolicyTooLargeException'  customize = (PackedPolicyTooLargeException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>STS is not activated in the requested region for the account that is being asked to generate credentials. The account administrator must use the IAM console to activate STS in that region. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and Deactivating AWS STS in an AWS Region</a> in the <i>IAM User Guide</i>.</p>
 newtype RegionDisabledException = RegionDisabledException 
-  { "message" :: NullOrUndefined (RegionDisabledMessage')
+  { "message" :: Maybe (RegionDisabledMessage')
   }
 derive instance newtypeRegionDisabledException :: Newtype RegionDisabledException _
 derive instance repGenericRegionDisabledException :: Generic RegionDisabledException _
@@ -585,12 +584,12 @@ instance encodeRegionDisabledException :: Encode RegionDisabledException where e
 
 -- | Constructs RegionDisabledException from required parameters
 newRegionDisabledException :: RegionDisabledException
-newRegionDisabledException  = RegionDisabledException { "message": (NullOrUndefined Nothing) }
+newRegionDisabledException  = RegionDisabledException { "message": Nothing }
 
 -- | Constructs RegionDisabledException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRegionDisabledException' :: ( { "message" :: NullOrUndefined (RegionDisabledMessage') } -> {"message" :: NullOrUndefined (RegionDisabledMessage') } ) -> RegionDisabledException
-newRegionDisabledException'  customize = (RegionDisabledException <<< customize) { "message": (NullOrUndefined Nothing) }
+newRegionDisabledException' :: ( { "message" :: Maybe (RegionDisabledMessage') } -> {"message" :: Maybe (RegionDisabledMessage') } ) -> RegionDisabledException
+newRegionDisabledException'  customize = (RegionDisabledException <<< customize) { "message": Nothing }
 
 
 
